@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TheMet</string>
+    <string name="artwork_title_unknown">Artwork Title: Unknown</string>
+    <string name="artwork_artist_unknown">Artwork Artist: Unknown</string>
 </resources>
