@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/artwork_title_unknown" />
+
+    <TextView
+        android:id="@+id/text_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/artwork_artist_unknown" />
+
+    <ImageView
+        android:contentDescription="@android:string/untitled"
+        android:id="@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_name"
+        android:layout_gravity="end"
+        android:scaleType="centerCrop"
+        android:maxHeight="100dp"
+        android:maxWidth="250dp"
+        android:minHeight="100dp"
+        android:minWidth="250dp"
+        android:adjustViewBounds="true" />
+</LinearLayout>

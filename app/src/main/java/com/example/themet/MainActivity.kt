@@ -1,11 +1,8 @@
 package com.example.themet
 
-import com.squareup.picasso.Picasso
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
@@ -24,14 +21,9 @@ data class Artwork(val title: String, val artist: String, val primaryImage: Stri
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val button = findViewById<Button>(R.id.button)
-        button.setOnClickListener {
-            requestArtwork()
-        }
+        requestArtwork()
     }
 
     private suspend fun fetchArtwork(): Artwork? = suspendCancellableCoroutine { continuation ->
@@ -73,35 +65,28 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateUI(result: Artwork?) {
-        if (result != null) {
-            val textView = findViewById<TextView>(R.id.text_view)
-            textView.text = "Artwork Title: ${result.title}"
-            val textView2 = findViewById<TextView>(R.id.text_view2)
-            if (result.artist == "") {
-                textView2.text = "Artwork Artist: Unknown"
-            } else {
-                textView2.text = "Artwork Artist: ${result.artist}"
-            }
-            val textView3 = findViewById<TextView>(R.id.text_view3)
-            if (result.primaryImage == "") {
-                textView3.text = "Artwork Photo: Unknown"
-            } else {
-                textView3.text = "Artwork Photo"
-                val imageUrl = result.primaryImage
-                val imageView = findViewById<ImageView>(R.id.image_view)
-                Picasso.get().load(imageUrl).into(imageView)
-            }
-
-        } else {
-            // Handle error
-        }
+    private fun updateUI(result: List<Artwork>) {
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.adapter = ArtworkAdapter(result)
     }
+
 
     private fun requestArtwork() {
         GlobalScope.launch(Dispatchers.Main) {
-            val artwork = fetchArtwork()
-            updateUI(artwork)
+            val artwork1 = fetchArtwork()
+            val artwork2 = fetchArtwork()
+            val artwork3 = fetchArtwork()
+            val artwork4 = fetchArtwork()
+            val artwork5 = fetchArtwork()
+            val artworkList = mutableListOf<Artwork>()
+            artworkList.add(artwork1!!)
+            artworkList.add(artwork2!!)
+            artworkList.add(artwork3!!)
+            artworkList.add(artwork4!!)
+            artworkList.add(artwork5!!)
+            updateUI(artworkList)
         }
     }
 }
+
+
