@@ -8,7 +8,7 @@ Time spent: **1** hour spent in total
 
 ## Summary
 
-**Name of your app** is an android app that displays 10 random works of art at a time from the MET in New York City.
+**The MET** is an android app that displays 10 random works of art at a time from the MET in New York City.
 
 If I had to describe this project in three (3) emojis, they would be: **🎨🖼️🤞🏻**
 
